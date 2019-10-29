@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using VehicleSummary.Api.Service;
 using VehicleSummary.Api.Services.VehicleSummary;
 
 namespace VehicleSummary.Api.Controllers
@@ -21,7 +22,7 @@ namespace VehicleSummary.Api.Controllers
         {
             var response = await _vehicleSummaryService.GetSummaryByMake(make);
             
-            return Ok(make);
+            return Ok(response);
         }
     }
 }

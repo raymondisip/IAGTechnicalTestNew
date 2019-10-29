@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using VehicleSummary.Api.Service;
+using VehicleSummary.Api.Services.VehicleSummary;
 
 namespace VehicleSummary.Api
 {
@@ -26,8 +28,9 @@ namespace VehicleSummary.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            
+
             // add the DI stuff here
+            services.AddScoped<IVehicleSummaryService, VehicleSummaryService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
