@@ -1,8 +1,6 @@
-using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using VehicleSummary.Api.Service;
-using VehicleSummary.Api.Services.VehicleSummary;
 
 namespace VehicleSummary.Api.Controllers
 {
