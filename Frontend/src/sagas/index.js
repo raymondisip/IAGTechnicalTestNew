@@ -1,12 +1,12 @@
 import { put, takeLatest, all } from 'redux-saga/effects';
 import { GET_VEHICLE_MODELS, VEHICLE_MODELS_RECEIVED } from '../actions/types';
 
-function* getVehicleModels(payload) {
+export function* getVehicleModels(payload) {
   const jsonResponse = yield fetch(`https://localhost:44387/vehicle-checks/makes/${payload.vehicleMake}`).then(response => response.json());
   yield put({ type: VEHICLE_MODELS_RECEIVED, vehicleModels: jsonResponse.models });
 }
 
-function* actionWatcher() {
+export function* actionWatcher() {
   yield takeLatest(GET_VEHICLE_MODELS, getVehicleModels);
 }
 

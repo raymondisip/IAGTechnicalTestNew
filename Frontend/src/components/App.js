@@ -5,7 +5,7 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 
 const App = () => (
-  <Container maxWidthXl>
+  <Container maxwidthxl="true">
     <div>
       <Header />
       <br />

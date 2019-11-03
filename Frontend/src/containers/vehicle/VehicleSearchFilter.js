@@ -16,7 +16,6 @@ const VehicleSearchFilter = ({ dispatch }) => {
           <TextField label="Vehicle Make" inputProps={{ ref: node => (vehicleMake = node) }} p={5} required />
         </Grid>
         <Grid container direction="row" justify="flex-start" alignItems="center" item xs={2}>
-          {/* <button type="submit">Search Vehicle</button> */}
           <Button
             variant="contained"
             color="primary"

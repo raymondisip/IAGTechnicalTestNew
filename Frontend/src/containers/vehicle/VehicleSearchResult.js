@@ -6,10 +6,11 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { connect } from 'react-redux';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 import { TablePagination } from '@material-ui/core';
 
-const VehicleSearchResult = ({ models }) => {
+const VehicleSearchResult = ({ models, loading }) => {
   return (
     <Paper>
       <Table>
@@ -20,7 +21,13 @@ const VehicleSearchResult = ({ models }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {models ? (
+          {loading ? (
+            <TableRow>
+              <TableCell component="th" scope="row" colSpan={6}>
+                <LinearProgress />
+              </TableCell>
+            </TableRow>
+          ) : models ? (
             models.map(model => (
               <TableRow key={model.name + model.yearsAvailable}>
                 <TableCell component="th" scope="row">
@@ -44,6 +51,7 @@ const VehicleSearchResult = ({ models }) => {
 
 const mapStateToProps = state => ({
   models: state.vehicleModels,
+  loading: state.loading,
 });
 
 export default connect(
